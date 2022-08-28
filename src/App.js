@@ -1,6 +1,10 @@
 import { Paper } from '@mui/material';
 import './App.css';
 import Login from './pages/Login';
+import { Routes, Route } from "react-router-dom";
+
+//componentes
+import Home from './pages/Home';
 
 const styles = {
   paperContainer: {
@@ -24,7 +28,17 @@ function App() {
   return (
     <Paper style={styles.paperContainer}>
       <div style={styles.backgroundWrapper}>
-        <Login />
+        <Routes>
+          <Route path="/" element={<Login />}>
+            {/* <Route index element={<Home />} /> */}
+            {/* <Route path="teams" element={<Teams />}>
+              <Route path=":teamId" element={<Team />} />
+              <Route path="new" element={<NewTeamForm />} />
+              <Route index element={<LeagueStandings />} />
+            </Route> */}
+          </Route>
+          <Route path="/home" element={<Home />} />
+        </Routes>
       </div>
     </Paper>
   );

@@ -4,10 +4,11 @@ import * as Yup from "yup";
 import { Button, Box } from "@mui/material";
 import Swal from 'sweetalert2';
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const styles = {
   form: {
-    border: "3px solid pink",
+    // border: "3px solid pink",
     display: "flex",
     flexDirection: "column",
     alignItems: "center",
@@ -32,6 +33,9 @@ const styles = {
 };
 
 const FormComponent = () => {
+
+    const navigate = useNavigate();
+
   const formik = useFormik({
     initialValues: {
       email: "",
@@ -46,19 +50,17 @@ const FormComponent = () => {
     }),
     onSubmit: (values) => {
       //aca va la logica de la api para loguear
-      console.log(values);
       axios
         .post("http://challenge-react.alkemy.org/", {
           email: `${values.email}`,
           password: `${values.password}`,
         })
         .then(function (response) {
-          console.log(response);
           const token = JSON.stringify(response.data.token)
           localStorage.setItem("token", token);
+          navigate("/home");
         })
         .catch(function (error) {
-          console.log(error);
           Swal.fire({
             icon: 'error',
             title: 'Oops...',
