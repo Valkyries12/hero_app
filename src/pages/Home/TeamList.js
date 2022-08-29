@@ -1,5 +1,6 @@
 import React from 'react';
-import { Grid, Divider, Typography, Button } from '@mui/material';
+import { Grid, Typography, Button } from '@mui/material';
+import { useNavigate } from "react-router-dom";
 
 
 
@@ -28,11 +29,13 @@ const styles = {
 }
 
 const TeamList = () => {
+    const navigate = useNavigate();
+
     return (
-        <Grid container sx={styles.gridContainer}>
+        <Grid container item direction="column" sx={styles.gridContainer}>
             <Grid padding={2} container item justifyContent="space-between" sx={{border: "1px solid green"}}>
                 <Typography sx={styles.title} variant="h3">Mi equipo</Typography>
-                <Button  variant="contained">
+                <Button onClick={() => navigate("/search")}  variant="contained">
                     Agregar heroe
                 </Button>
             </Grid>

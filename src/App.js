@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 
 //componentes
 import Home from './pages/Home';
+import Search from './pages/Search';
 
 const styles = {
   paperContainer: {
@@ -38,6 +39,7 @@ function App() {
             </Route> */}
           </Route>
           <Route path="/home" element={<Home />} />
+          <Route path="/search" element={<Search />} />
         </Routes>
       </div>
     </Paper>

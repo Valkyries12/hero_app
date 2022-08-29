@@ -1,7 +1,8 @@
-import React, { useEffect, useState } from "react";
-import { Navigate, useNavigate } from "react-router-dom";
-import { Grid, Typography, Button } from "@mui/material";
+import React from "react";
+import { Navigate } from "react-router-dom";
+import { Grid } from "@mui/material";
 import TeamList from "./TeamList";
+import Header from "../../common/Header";
 
 const styles = {
   title: {
@@ -18,34 +19,15 @@ const styles = {
 };
 
 const Home = () => {
-  const navigate = useNavigate();
   const token = localStorage.getItem("token");
-
-  const closeSession = () => {
-    localStorage.clear();
-    navigate("/");
-  };
 
   return (
     <>
       {!token && <Navigate to="/" />}
       <Grid container direction="column" sx={styles.gridContainer}>
-        <Grid
-          container
-          item
-          justifyContent="space-between"
-          sx={{ border: "3px solid blue" }}
-        >
-          <Typography sx={styles.title} variant="h2">
-            SuperHero App
-          </Typography>
-          <Button onClick={closeSession} variant="contained">
-            Cerrar sesión
-          </Button>
-        </Grid>
+        <Header />
 
-        <Grid>
-            //TODO hace listado de heroes si encontro como si no
+        <Grid item>
             <TeamList />
 
         </Grid>
