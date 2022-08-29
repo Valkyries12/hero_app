@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Navigate, useNavigate } from "react-router-dom";
 import { Grid, Typography, Button } from "@mui/material";
+import TeamList from "./TeamList";
 
 const styles = {
   title: {
@@ -45,6 +46,8 @@ const Home = () => {
 
         <Grid>
             //TODO hace listado de heroes si encontro como si no
+            <TeamList />
+
         </Grid>
       </Grid>
     </>
