@@ -2,7 +2,8 @@ import React from "react";
 import { Navigate } from "react-router-dom";
 import { Grid } from "@mui/material";
 import TeamList from "./TeamList";
-import Header from "../../common/Header";
+import LayoutContainer from "../../common/LayoutContainer";
+
 
 const styles = {
   title: {
@@ -13,7 +14,7 @@ const styles = {
   gridContainer: {
     border: "1px solid red",
     width: "100vw",
-    height: "100vh",
+    // height: "100vh",
     padding: "10px 30px",
   },
 };
@@ -24,14 +25,9 @@ const Home = () => {
   return (
     <>
       {!token && <Navigate to="/" />}
-      <Grid container direction="column" sx={styles.gridContainer}>
-        <Header />
-
-        <Grid item>
-            <TeamList />
-
-        </Grid>
-      </Grid>
+      <LayoutContainer>
+        <TeamList />
+      </LayoutContainer>
     </>
   );
 };

@@ -1,14 +1,16 @@
 import React from "react";
-import { Grid } from "@mui/material";
+import { Grid, Button, Typography} from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
-import Header from "../../common/Header";
+import LayoutContainer from "../../common/LayoutContainer";
+import SearchForm from "./SearchForm";
 
 const styles = {
   gridContainer: {
-    border: "1px solid red",
-    width: "100vw",
-    height: "100vh",
-    padding: "10px 30px",
+    border: "2px solid blue",
+    // width: "100vw",
+    // height: "100vh",
+    padding: "20px 20px",
   },
   title: {
     fontSize: "40px",
@@ -16,9 +18,9 @@ const styles = {
     fontWeight: "200",
   },
   text: {
-    fontSize: "40px",
+    fontSize: "60px",
     color: "#fff",
-    margin: " 100px auto",
+    margin: " 50px auto",
   },
   divider: {
     width: "98%",
@@ -28,14 +30,24 @@ const styles = {
 };
 
 const Search = () => {
-  return (
-    <Grid container direction="column" sx={styles.gridContainer}>
-      <Header />
+  const navigate = useNavigate();
 
-      <Grid item>
-        //TODO la tabla contenedora de cartas de puse reutilizar 
+  return (
+    <LayoutContainer>
+      <Grid container sx={styles.gridContainer}>
+        <Button onClick={() => navigate("/home")} variant="contained">
+          volver al equipo
+        </Button>
       </Grid>
-    </Grid>
+
+      <Grid item container sx={{border: "2px solid yellow"}}>
+        <Typography variant="h2" sx={styles.text}>Agregar Superheroe</Typography>
+      </Grid>
+
+      <Grid item container justifyContent={"center"}>
+        <SearchForm />
+      </Grid>
+    </LayoutContainer>
   );
 };
 

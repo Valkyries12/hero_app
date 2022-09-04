@@ -1,6 +1,7 @@
 import React from 'react';
 import { Grid, Typography, Button } from '@mui/material';
 import { useNavigate } from "react-router-dom";
+import HeroesListContainer from '../../common/HeroesListContainer';
 
 
 
@@ -32,18 +33,29 @@ const TeamList = () => {
     const navigate = useNavigate();
 
     return (
-        <Grid container item direction="column" sx={styles.gridContainer}>
+        <HeroesListContainer>
             <Grid padding={2} container item justifyContent="space-between" sx={{border: "1px solid green"}}>
-                <Typography sx={styles.title} variant="h3">Mi equipo</Typography>
-                <Button onClick={() => navigate("/search")}  variant="contained">
-                    Agregar heroe
-                </Button>
-            </Grid>
-            <div style={styles.divider}></div>
-            <Grid container item sx={{border: "1px solid green"}}>
-                <Typography sx={styles.text}>Agrega heroes a tu equipo</Typography>
-            </Grid>
-        </Grid>
+                 <Typography sx={styles.title} variant="h3">Mi equipo</Typography>
+                 <Button onClick={() => navigate("/search")}  variant="contained">
+                     Agregar heroe
+                 </Button>
+             </Grid>
+             <Grid container item sx={{border: "1px solid pink"}}>
+                 <Typography sx={styles.text}>Agrega heroes a tu equipo</Typography>
+             </Grid>
+        </HeroesListContainer>
+        // <Grid container item direction="column" sx={styles.gridContainer}>
+        //     <Grid padding={2} container item justifyContent="space-between" sx={{border: "1px solid green"}}>
+        //         <Typography sx={styles.title} variant="h3">Mi equipo</Typography>
+        //         <Button onClick={() => navigate("/search")}  variant="contained">
+        //             Agregar heroe
+        //         </Button>
+        //     </Grid>
+        //     <div style={styles.divider}></div>
+        //     {/* <Grid container item sx={{border: "1px solid pink"}}>
+        //         <Typography sx={styles.text}>Agrega heroes a tu equipo</Typography>
+        //     </Grid> */}
+        // </Grid>
     );
 }
 
