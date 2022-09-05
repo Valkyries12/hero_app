@@ -43,7 +43,7 @@ const SearchForm = () => {
         .required("Nombre requerido"),
     }),
     onSubmit: (values) => {
-      //aca va la logica de la api para traer heroes
+      //aca va la logica de la api para traer heroes llama al reducer y todo eso
       axios
         .post("http://challenge-react.alkemy.org/", {
           search: `${values.search}`,
