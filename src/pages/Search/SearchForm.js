@@ -2,7 +2,8 @@ import React from "react";
 import { Button, Box } from "@mui/material";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { fetchHeroesByName } from "../../features/heroeSlice";
 
 const styles = {
   form: {
@@ -32,6 +33,8 @@ const styles = {
 };
 
 const SearchForm = () => {
+  const dispatch = useDispatch();
+
   const formik = useFormik({
     initialValues: {
       search: "",
@@ -44,14 +47,7 @@ const SearchForm = () => {
     }),
     onSubmit: (values) => {
       //aca va la logica de la api para traer heroes llama al reducer y todo eso
-      axios
-        .post("http://challenge-react.alkemy.org/", {
-          search: `${values.search}`,
-        })
-        .then(function (response) {
-          //TODO va cuando busco y me trae los datos de los heroes
-        })
-        .catch(function (error) {});
+      dispatch(fetchHeroesByName(values.search));
     },
   });
   return (
